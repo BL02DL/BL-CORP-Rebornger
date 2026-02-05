@@ -8,6 +8,10 @@
     snap:
     - Disposal
   components:
+  - type: RCDFAPDeconstructable
+    cost: 4
+    delay: 4
+    fx: EffectRCDDeconstruct4
   - type: Sprite
     drawdepth: ThickPipe
     sprite: Structures/Piping/disposal.rsi

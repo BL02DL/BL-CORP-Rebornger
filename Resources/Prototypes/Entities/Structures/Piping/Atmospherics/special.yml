@@ -6,6 +6,10 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: RCDFAPDeconstructable
+    cost: 4
+    delay: 2
+    fx: EffectRCDDeconstruct2
   - type: Transform
     anchored: true
   - type: Physics

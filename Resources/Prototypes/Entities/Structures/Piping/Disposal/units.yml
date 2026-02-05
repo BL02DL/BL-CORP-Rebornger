@@ -8,6 +8,10 @@
     snap:
     - Disposal
   components:
+  - type: RCDFAPDeconstructable
+    cost: 10
+    delay: 8
+    fx: EffectRCDDeconstruct8
   - type: Climbable
     vaultable: false
   - type: Sprite

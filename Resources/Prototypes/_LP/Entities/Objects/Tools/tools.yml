@@ -1,0 +1,137 @@
+- type: entity
+  id: LPPRCDFAP
+  parent: [ BaseItem, BaseEngineeringContraband ]
+  name: RCDFAP
+  description: The rapid construction device can be used to quickly place and remove various station structures and fixtures. Requires compressed matter to function.
+  components:
+  - type: RCDFAP
+    availablePrototypes:
+    - LPPFireAlarm
+    #Layer1
+    - LPPGasPipeBend
+    - LPPGasPipeStraight
+    - LPPGasPipeHalf
+    - LPPGasPipeFourway
+    - LPPGasPipeTJunction
+    #Layer2
+    - LPPGasPipeBendAlt1
+    - LPPGasPipeStraightAlt1
+    - LPPGasPipeHalfAlt1
+    - LPPGasPipeFourwayAlt1
+    - LPPGasPipeTJunctionAlt1
+    #Layer3
+    - LPPGasPipeBendAlt2
+    - LPPGasPipeStraightAlt2
+    - LPPGasPipeHalfAlt2
+    - LPPGasPipeFourwayAlt2
+    - LPPGasPipeTJunctionAlt2
+    - LPPGasPressurePump
+    - LPPGasMixer
+    - LPPGasMixerFlipped
+    - LPPGasFilter
+    - LPPGasFilterFlipped
+    - LPPGasVolumePump
+    - LPPGasPassiveVent
+    - LPPGasOutletInjector
+    - LPPGasVentPump
+    - LPPGasValve
+    - LPPGasVentScrubber
+    - LPPAtmosDeviceFanTiny
+    - LPPGasPassiveGate
+    - LPPGasDualPortVentPump
+    - LPPSignalControlledValve
+    - LPPPressureControlledValve
+    - LPPDisposalUnit
+    - LPPMailingUnit
+    - LPPGasPort
+    - LPPDisposalJunctionFlipped
+    - LPPDisposalJunction
+    - LPPDisposalRouterFlipped
+    - LPPDisposalRouter
+    - LPPDisposalTagger
+    - LPPDisposalBend
+    - LPPDisposalYJunction
+    - LPPDisposalSignalRouter
+    - LPPDisposalSignalRouterFlipped
+    - LPPDisposalTrunk
+    - LPPDisposalPipe
+    - LPPAirSensor
+    - LPPFloorDrain
+    - LPPAirAlarm
+    - LPPDeconstruct
+  - type: LimitedCharges
+    maxCharges: 130
+    charges: 130
+  - type: Sprite
+    sprite: _LP/Objects/Tools/rcdfap.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: Clothing
+    sprite: _LP/Objects/Tools/rcdfap.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 600
+      Plastic: 100
+  - type: StaticPrice
+    price: 110
+  - type: UserInterface
+    interfaces:
+      enum.RcdfapUiKey.Key:
+        type: RCDFAPMenuBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.RcdfapUiKey.Key
+
+- type: entity
+  id: LPPRCDFAPEmpty
+  parent: LPPRCDFAP
+  suffix: Empty
+  components:
+  - type: LimitedCharges
+    lastCharges: -1
+
+- type: entity
+  id: LPPRCDFAPRecharging
+  parent: LPPRCDFAP
+  name: experimental RCDFAP
+  description: Cyborg-mounted Rapid Construction Device which creates compressed matter on the fly using an internal fabricator.
+  suffix: AutoRecharge
+  components:
+  - type: LimitedCharges
+    maxCharges: 120
+  - type: AutoRecharge
+    rechargeDuration: 5
+
+- type: entity
+  id: LPPRCDFAPExperimental
+  parent: LPPRCDFAP
+  suffix: Admeme
+  name: experimental RCDFAP
+  description: A bluespace-enhanced rapid construction device that passively generates its own compressed matter.
+  components:
+  - type: AutoRecharge
+    rechargeDuration: 1
+
+- type: entity
+  name: compressed matter for atmospheric purposes
+  parent: BaseItem
+  id: LPPRCDFAPAmmo
+  description: A cartridge of raw matter compacted by bluespace technology. Used in rapid construction devices.
+  components:
+  - type: RCDFAPAmmo
+  - type: Sprite
+    sprite: _LP/Objects/Tools/rcdfap.rsi
+    state: ammo
+  - type: Item
+    sprite: _LP/Objects/Tools/rcdfap.rsi
+    heldPrefix: ammo
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Plastic: 100
+  - type: StaticPrice
+    price: 60

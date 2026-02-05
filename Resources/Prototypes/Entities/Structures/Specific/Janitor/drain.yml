@@ -5,6 +5,10 @@
   placement:
     mode: SnapgridCenter
   components:
+    - type: RCDFAPDeconstructable
+      cost: 10
+      delay: 6
+      fx: EffectRCDDeconstruct6
     - type: Sprite
       drawdepth: FloorObjects
       sprite: Objects/Specific/Janitorial/drain.rsi

@@ -643,6 +643,7 @@
       - BorgModuleFireExtinguisher
       - BorgModuleConstruction
       - BorgModuleRCD
+      - LPPBorgModuleRCDFAP # LP Edit
       - BorgModuleCable
   - type: ItemSlots
     slots:

@@ -4,6 +4,10 @@
   name: air alarm
   description: An air alarm. Alarms... air?
   components:
+  - type: RCDFAPDeconstructable
+    cost: 5
+    delay: 6
+    fx: EffectRCDDeconstruct6
   - type: StationAiWhitelist
   - type: Electrified
     enabled: false
@@ -117,6 +121,10 @@
   name: air alarm assembly
   description: An air alarm. Doesn't look like it'll be alarming air any time soon.
   components:
+  - type: RCDFAPDeconstructable
+    cost: 5
+    delay: 6
+    fx: EffectRCDDeconstruct6
   - type: Sprite
     sprite: Structures/Wallmounts/air_monitors.rsi
     layers:

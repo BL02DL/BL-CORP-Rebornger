@@ -4,6 +4,10 @@
   name: fire alarm
   description: A fire alarm. Spicy!
   components:
+  - type: RCDFAPDeconstructable
+    cost: 4
+    delay: 2
+    fx: EffectRCDDeconstruct2
   - type: LightningTarget
     priority: 0
   - type: Electrified
