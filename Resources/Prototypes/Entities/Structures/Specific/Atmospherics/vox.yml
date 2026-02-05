@@ -15,6 +15,7 @@
       Ammonia: stationAmmonia
       NitrousOxide: stationNO
       Frezon: danger
+      # LP Edit Start, Gases Port
       BZ: danger
       Pluoxium: unwanted
       Hydrogen: danger
@@ -26,6 +27,7 @@
       Halon: danger
       Helium: unwanted
       AntiNoblium: danger
+      # LP Edit End, Gases Port
 
 - type: entity
   parent: [AirSensorVoxBase, AirSensor]

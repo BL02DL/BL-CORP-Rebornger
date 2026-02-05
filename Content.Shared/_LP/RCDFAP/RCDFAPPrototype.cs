@@ -33,12 +33,6 @@ public sealed partial class RCDFAPPrototype : IPrototype
     public string Category { get; private set; } = "Undefined";
 
     /// <summary>
-    /// The name of the sub-category radial container that this prototype will be listed under on the RCDFAP menu
-    /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public string? SubCategory { get; private set; } = "Undefined";
-
-    /// <summary>
     /// Texture path for this prototypes menu icon
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]

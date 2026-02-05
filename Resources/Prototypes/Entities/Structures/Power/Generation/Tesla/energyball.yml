@@ -93,7 +93,7 @@
   - type: Tag
     tags:
     - GhostOnlyWarp
-    - Tesla
+    - Tesla # LP Edit
   - type: WarpPoint
     follow: true
     location: tesla ball

@@ -8,7 +8,7 @@
     snap:
     - Window
   components:
-  - type: CanBuildWindowOnTopRCDFAP
+  - type: CanBuildWindowOnTopRCDFAP # LP Edit
   - type: Anchorable
     flags:
     - Anchorable

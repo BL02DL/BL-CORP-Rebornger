@@ -5,10 +5,9 @@
   placement:
     mode: SnapgridCenter
   components:
-    - type: RCDFAPDeconstructable
-      cost: 10
-      delay: 6
-      fx: EffectRCDDeconstruct6
+    - type: Construction
+      graph: FloorDrain
+      node: FloorDrain
     - type: Sprite
       drawdepth: FloorObjects
       sprite: Objects/Specific/Janitorial/drain.rsi
@@ -62,3 +61,9 @@
             - !type:PlaySoundBehavior
               sound:
                 collection: MetalBreak
+    # LP Edit Start
+    - type: RCDFAPDeconstructable
+      cost: 10
+      delay: 6
+      fx: EffectRCDDeconstruct6
+    # LP Edit End

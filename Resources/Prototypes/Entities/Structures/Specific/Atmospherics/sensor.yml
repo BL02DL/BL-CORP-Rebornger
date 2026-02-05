@@ -2,10 +2,12 @@
   id: AirSensorBase
   abstract: true
   components:
+  # LP Edit Start
   - type: RCDFAPDeconstructable
     cost: 4
     delay: 2
     fx: EffectRCDDeconstruct2
+  # LP Edit End
   - type: DeviceNetwork
     deviceNetId: AtmosDevices
     receiveFrequencyId: AtmosMonitor
@@ -29,6 +31,7 @@
       Ammonia: stationAmmonia
       NitrousOxide: stationNO
       Frezon: danger
+      # LP Edit Start, Gases Port
       BZ: danger
       Pluoxium: unwanted
       Hydrogen: danger
@@ -40,6 +43,7 @@
       Halon: danger
       Helium: unwanted
       AntiNoblium: danger
+      # LP Edit End, Gases Port
   - type: GuideHelp
     guides:
     - DeviceMonitoringAndControl

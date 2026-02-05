@@ -14,7 +14,7 @@
       delay: 4
       fx: EffectRCDDeconstruct4
     - type: CanBuildWindowOnTop
-    - type: CanBuildWindowOnTopRCDFAP
+    - type: CanBuildWindowOnTopRCDFAP # LP Edit
     - type: Sprite
       drawdepth: Walls
       sprite: Structures/Walls/grille.rsi
