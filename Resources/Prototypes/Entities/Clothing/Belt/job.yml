@@ -38,8 +38,8 @@
       - RCD
       - RCDAmmo
       # LP Edit Start
-      - LPPRCDFAP
-      - LPPRCDFAPAmmo
+      - RCDFAP
+      - RCDFAPAmmo
       # LP Edit End
       - Welder
       - PowerCell
