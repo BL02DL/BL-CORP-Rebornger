@@ -3,3 +3,5 @@ ent-LPPBorgModuleSecurityWeapon = security weapon cyborg module
 ent-LPPBorgModuleSecurityLaserCarbine = security laser cyborg module
     .desc = A module containing a lethal laser weapon for extreme situations.
 borg-slot-handcuffs-empty = empty
+ent-LPPBorgModuleRCDFAP = engineering cyborg module
+    .desc = { ent-BaseBorgModuleEngineering.desc }
