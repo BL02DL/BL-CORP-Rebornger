@@ -1,0 +1,7 @@
+- type: construction
+  id: LPPToolboxHammer
+  graph: LPPToolboxHammer
+  startNode: start
+  targetNode: lpphammer
+  category: construction-category-weapons
+  objectType: Item

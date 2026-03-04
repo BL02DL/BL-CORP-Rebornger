@@ -32,3 +32,53 @@
     quickEquip: false
     slots:
     - back
+
+- type: entity
+  name: incomplete baseball bat
+  parent: BaseItem
+  id: LPPIncompleteBaseToolboxHammer
+  description: A few planks of wood stuck together.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/incomplete_bat.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,0,3
+    storedSprite:
+      state: storage
+      sprite: Objects/Weapons/Melee/incomplete_bat.rsi
+    sprite: Objects/Weapons/Melee/incomplete_bat.rsi
+  - type: Construction
+    graph: LPPToolboxHammer
+    node: incompleteHammer
+
+- type: entity
+  parent: BaseItem
+  id: LPPToolboxHammer
+  name: hammer
+  description: The perfect tool for wanton carnage.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/sledgehammer.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 10
+        Structural: 10
+    soundHit:
+      collection: MetalThud
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 10
+        Structural: 10
+  - type: Item
+    size: Large
+  - type: Construction
+    graph: LPPToolboxHammer
+    node: lpphammer
