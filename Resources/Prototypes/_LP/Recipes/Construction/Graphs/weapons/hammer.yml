@@ -18,7 +18,7 @@
                 sprite: Objects/Materials/Shards/shard.rsi
                 state: shard1
               doAfter: 3
-        
+
     - node: incompleteHammer
       entity: LPPIncompleteBaseToolboxHammer
       edges:
@@ -49,6 +49,6 @@
               doAfter: 5
             - tool: Welding
               doAfter: 15
-        
+
     - node: lpphammer
       entity: LPPToolboxHammer
