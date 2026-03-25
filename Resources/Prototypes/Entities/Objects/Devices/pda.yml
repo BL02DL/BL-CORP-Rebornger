@@ -299,8 +299,6 @@
     borderColor: "#d7d7d0"
   - type: Icon
     state: pda-cook
-  - type: ReplacementAccent # for random sentience event
-    accent: italian
 
 - type: entity
   parent: BasePDA
@@ -418,6 +416,9 @@
       whitelist:
         components:
         - Cartridge
+    preinstalled:
+    - CrewManifestCartridge
+    - NewsReaderCartridge
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
@@ -1365,7 +1366,7 @@
   description: I wonder whose pulse is on the screen? I hope it doesn't stop...
   components:
   - type: Pda
-    id: LPPFieldMedicIDCard # LP Edit
+    id: BrigmedicIDCard
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:

@@ -143,7 +143,7 @@
       components:
       - MobState
     chemical: Ichor
-    healRate: 7.5
+    healRate: 15 # LP Edit
     whitelist:
       components:
       - MobState
@@ -229,8 +229,8 @@
       amount: 1
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 12
+      types:
+        Piercing: 12
 
 - type: entity
   parent: BaseAction

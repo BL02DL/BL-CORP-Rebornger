@@ -71,5 +71,30 @@ public sealed partial class AlertLevelDetail
     /// How long it takes for the shuttle to arrive when called.
     /// </summary>
     [DataField("shuttleTime")] public TimeSpan ShuttleTime { get; private set; } = TimeSpan.FromMinutes(5);
-}
 
+    // LP edit start
+    /// <summary>
+    /// Whether this alert level change is voiced by TTS.
+    /// </summary>
+    [DataField("tts")] public bool Tts { get; private set; } = false;
+
+    /// <summary>
+    /// Override TTS voice for this alert level. Null = use CVar default.
+    /// </summary>
+    [DataField("ttsVoice")] public string? TtsVoice { get; private set; }
+    // LP edit end
+
+    // Orion-Start
+    /// <summary>
+    ///     Alarm sound that the emergency lights will play.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? AlarmSound;
+
+    /// <summary>
+    ///     How often will the alarm should play.
+    /// </summary>
+    [DataField]
+    public TimeSpan AlarmInterval = TimeSpan.FromSeconds(30);
+    // Orion-End
+}

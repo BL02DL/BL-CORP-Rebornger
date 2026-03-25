@@ -12,6 +12,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
+using Content.Shared.Corvax.TTS; // LP edit
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
@@ -68,8 +69,8 @@ public sealed partial class ChatSystem : SharedChatSystem
     // public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
     // public const int WhisperMuffledRange = 5; // how far whisper goes at all, in world units
     // Corvax-TTS-End
-    public readonly SoundSpecifier DefaultAnnouncementSound = new SoundPathSpecifier("/Audio/Corvax/Announcements/announce.ogg"); // Corvax-Announcements
-    public const string CentComAnnouncementSound = "/Audio/Corvax/Announcements/centcomm.ogg"; // Corvax-Announcements
+    public new readonly SoundSpecifier DefaultAnnouncementSound = new SoundPathSpecifier("/Audio/Announcements/announce.ogg"); // Corvax-Announcements
+    public const string CentComAnnouncementSound = "/Audio/Announcements/announce.ogg"; // Corvax-Announcements
 
     private bool _loocEnabled = true;
     private bool _deadLoocEnabled;
@@ -322,8 +323,9 @@ public sealed partial class ChatSystem : SharedChatSystem
         string? sender = null,
         bool playSound = true,
         SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null
-        )
+        Color? colorOverride = null,
+        bool announceTts = false, // LP edit
+        string? ttsVoiceId = null) // LP edit
     {
         sender ??= Loc.GetString("chat-manager-sender-announcement");
 
@@ -335,6 +337,11 @@ public sealed partial class ChatSystem : SharedChatSystem
             _audio.PlayGlobal(announcementSound ?? DefaultAnnouncementSound, Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
         }
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Global station announcement from {sender}: {message}");
+
+        // LP edit start - TTS for announcements
+        if (announceTts)
+            RaiseLocalEvent(new AnnouncementTTSEvent(message, voiceId: ttsVoiceId));
+        // LP edit end
     }
 
     /// <inheritdoc />
@@ -345,7 +352,9 @@ public sealed partial class ChatSystem : SharedChatSystem
         string? sender = null,
         bool playSound = true,
         SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null)
+        Color? colorOverride = null,
+        bool announceTts = false, // LP edit
+        string? ttsVoiceId = null) // LP edit
     {
         sender ??= Loc.GetString("chat-manager-sender-announcement");
 
@@ -356,6 +365,11 @@ public sealed partial class ChatSystem : SharedChatSystem
             _audio.PlayGlobal(announcementSound ?? DefaultAnnouncementSound, filter, true, AudioParams.Default.WithVolume(-2f));
         }
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement from {sender}: {message}");
+
+        // LP edit start - TTS for announcements
+        if (announceTts)
+            RaiseLocalEvent(new AnnouncementTTSEvent(message, voiceId: ttsVoiceId));
+        // LP edit end
     }
 
     /// <inheritdoc />
@@ -365,7 +379,9 @@ public sealed partial class ChatSystem : SharedChatSystem
         string? sender = null,
         bool playDefaultSound = true,
         SoundSpecifier? announcementSound = null,
-        Color? colorOverride = null)
+        Color? colorOverride = null,
+        bool announceTts = false, // LP edit
+        string? ttsVoiceId = null) // LP edit
     {
         sender ??= Loc.GetString("chat-manager-sender-announcement");
 
@@ -395,6 +411,11 @@ public sealed partial class ChatSystem : SharedChatSystem
         }
 
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement on {station} from {sender}: {message}");
+
+        // LP edit start - TTS for announcements
+        if (announceTts)
+            RaiseLocalEvent(new AnnouncementTTSEvent(message, station, ttsVoiceId));
+        // LP edit end
     }
 
     #endregion
@@ -631,20 +652,19 @@ public sealed partial class ChatSystem : SharedChatSystem
             ("entityName", coloredName),
             ("entity", ent),
             ("message", coloredAction));
-
+        const float hiddenEmoteRange = 1;
 
         if (checkEmote)
             TryEmoteChatInput(source, action);
 
-        float hiddenEmoteRange = 2;
-
-        foreach (var (session, data) in GetRecipients(source, VoiceRange))
+        foreach (var (session, data) in GetRecipients(source, hiddenEmoteRange))
         {
             var entRange = MessageRangeCheck(session, data, range);
             if (entRange == MessageRangeCheckResult.Disallowed)
                 continue;
             var entHideChat = entRange == MessageRangeCheckResult.HideChat;
-            _chatManager.ChatMessageToOne(ChatChannel.HiddenEmotes, action, wrappedMessage, source, false, session.Channel);
+            if (data.Range < hiddenEmoteRange)
+                _chatManager.ChatMessageToOne(ChatChannel.HiddenEmotes, action, wrappedMessage, source, false, session.Channel);
         }
         if (!hideLog)
             if (name != Name(source))
@@ -681,7 +701,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 #if LP
         if (IoCManager.Resolve<SponsorsManager>().TryGetInfo(player.UserId, out var sponsorData) && sponsorData.Tier > 0)
         {
-            wrappedMessage = Loc.GetString("chat-manager-entity-looc-patron-wrap-message", ("patronColor", sponsorData.OOCColor), ("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
+            wrappedMessage = Loc.GetString("chat-manager-entity-looc-patron-wrap-message", ("patronColor", sponsorData.OOCColor), ("entityName", name), ("message", FormattedMessage.EscapeText(message)));
         }
 #endif
 

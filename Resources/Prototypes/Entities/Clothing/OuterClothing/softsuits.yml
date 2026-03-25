@@ -13,7 +13,6 @@
     tags:
     - SuitEVA
     - MonkeyWearable
-    - CorgiWearable
     - WhitelistChameleon
 
 #Syndicate EVA
@@ -124,8 +123,10 @@
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
   - type: ClothingSpeedModifier
-    walkModifier: 0.9
-    sprintModifier: 0.9
+    # LP Edit Start
+    walkModifier: 1
+    sprintModifier: 1
+    # LP Edit End
     requireActivated: false
   - type: HeldSpeedModifier
   - type: TemperatureProtection
@@ -135,8 +136,10 @@
     modifiers:
       coefficients:
         Heat: 0.90
-        Radiation: 0.75
-        Caustic: 0.5
+        # LP Edit Start
+        Radiation: 0.5
+        Caustic: 0.25
+        # LP Edit End
   - type: GroupExamine
   - type: StealTarget
     stealGroup: ClothingOuterHardsuitVoidParamed
@@ -171,5 +174,4 @@
       toggleable-clothing: !type:ContainerSlot {}
   - type: Tag
     tags:
-    - CorgiWearable
     - WhitelistChameleon

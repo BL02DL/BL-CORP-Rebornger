@@ -1,4 +1,10 @@
 ent-LPPSecurityEnginerIDCard = ID-карта полевого инженера
     .desc = { ent-IDCardStandard.desc }
-ent-LPPFieldMedicIDCard = ID-карта полевого врача
+ent-LPPSergeantIDCard = ID-карта сержанта СБ
+    .desc = { ent-IDCardStandard.desc }
+ent-LPPEngineerFirstGradeIDCard = ID-карта инженера первой категории
+    .desc = { ent-IDCardStandard.desc }
+ent-LPPSeniorMedicIDCard = ID-карта старшего врача
+    .desc = { ent-IDCardStandard.desc }
+ent-LPPSeniorScientistIDCard = ID-карта старшего учёного
     .desc = { ent-IDCardStandard.desc }

@@ -136,6 +136,11 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
+      # ADT-Tweak-Start
+        blacklist:
+          tags:
+          - ADTMegaCell
+      # ADT-Tweak-End
   - type: Body
   - type: StatusEffects
     allowed:
@@ -255,8 +260,6 @@
     - Dead
   - type: TTS # Corvax-TTS
     voice: turret_floor
-  - type: SpeechSynthesis # Corvax-Frontier-Barks
-    voice: Borg
 
 - type: entity
   abstract: true
@@ -378,8 +381,6 @@
     color: "#dd200b"
   - type: BypassLock
     bypassDelay: 15 # We don't want people to easily be able to remove syndieborg brains.
-  - type: SpeechSynthesis # Corvax-Frontier-Barks
-    voice: BorgSyndie
 
 - type: entity
   id: BaseBorgChassisDerelict
