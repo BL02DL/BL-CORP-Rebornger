@@ -575,6 +575,12 @@ entity-effect-guidebook-plant-remove-kudzu =
         *[other] удаляет
     } кудзу из растения
 
+entity-effect-guidebook-plant-remove-kudzu =
+    { $chance ->
+        [1] Убирает
+        *[other] убирает
+    } кудзу из растения
+
 entity-effect-guidebook-plant-diethylamine =
     { $chance ->
         [1] Увеличивает
