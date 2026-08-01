@@ -1,6 +1,6 @@
 - type: entity
   id: LPPTechnologyDiskDecryptor
-  parent: LPPBaseComputerAiAccessNoContainer
+  parent: BaseComputer
   name: technology disk decryptor
   description: A device for decrypting old encrypted disks. Allows access to recipes hidden inside.
   components:
