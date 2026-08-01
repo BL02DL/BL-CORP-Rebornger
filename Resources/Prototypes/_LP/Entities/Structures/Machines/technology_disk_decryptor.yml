@@ -46,6 +46,4 @@
       board: !type:Container
         ents: []
       disk_slot: !type:ContainerSlot
-        ents: []
       processor_slot: !type:ContainerSlot
-        ents: []
