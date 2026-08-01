@@ -4476,4 +4476,13 @@
   id: 5795
   time: '2026-07-22T09:59:19.0000000+00:00'
   url: https://github.com/Lost-Paradise-Project/Paradise-Rebornger/pull/310
+- author: SanitarDurkovic
+  changes:
+  - message: "\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u044B \u0448\u0430\u0445\
+      \u0442\u0451\u0440\u044B \u043D\u0430 \u043A\u0430\u0440\u0442\u0443 \u041A\u0435\
+      \u0442\u0442\u043B."
+    type: Add
+  id: 5796
+  time: '2026-07-31T13:44:12.0000000+00:00'
+  url: https://github.com/Lost-Paradise-Project/Paradise-Rebornger/pull/314
 Order: 1
